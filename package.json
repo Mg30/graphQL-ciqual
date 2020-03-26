@@ -1,0 +1,25 @@
+{
+  "name": "express-serveless",
+  "version": "1.0.0",
+  "description": "rest api servless",
+  "main": "index.js",
+  "config": {
+    "bucketName": "my-express-lambda-express"
+  },
+  "scripts": {
+    "config": "node ./script/config.js",
+    "start": "node app.local.js",
+    "deploy-package" : "powershell.exe Compress-Archive -Path node_modules,lambda.js, app.js -DestinationPath lambda-package; aws s3 cp lambda-package.zip s3://%npm_package_config_bucketName%/"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-serverless-express": "^3.3.3",
+    "body-parser": "^1.17.1",
+    "cors": "^2.8.3",
+    "express": "^4.15.2"
+  },
+  "devDependencies": {
+    "minimist": "^1.2.5"
+  }
+}
