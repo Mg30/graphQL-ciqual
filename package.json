@@ -2,22 +2,24 @@
   "name": "express-serveless",
   "version": "1.0.0",
   "description": "rest api servless",
-  "main": "index.js",
+  "main": "lambda.js",
   "config": {
-    "bucketName": "my-express-lambda-express"
+    "bucketName": "serverless-express-node-lambda"
   },
   "scripts": {
     "config": "node ./script/config.js",
     "start": "node app.local.js",
-    "deploy-package" : "powershell.exe Compress-Archive -Path node_modules,lambda.js, app.js -DestinationPath lambda-package; aws s3 cp lambda-package.zip s3://%npm_package_config_bucketName%/"
+    "deploy": "zip -r lambda-package.zip node_modules/ index.js app.js && aws s3 cp lambda-package.zip s3://$npm_package_config_bucketName/",
+    "update-credentials": "cp /mnt/c/Users/Matt/.aws/credentials ~/.aws/credentials",
+    "remove": "aws s3 rm s3://$npm_package_config_bucketName/lambda-package.zip"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "aws-serverless-express": "^3.3.3",
-    "body-parser": "^1.17.1",
-    "cors": "^2.8.3",
-    "express": "^4.15.2"
+    "aws-serverless-express": "^3.3.8",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
   },
   "devDependencies": {
     "minimist": "^1.2.5"
