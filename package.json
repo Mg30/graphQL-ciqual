@@ -8,7 +8,7 @@
   },
   "scripts": {
     "config": "node ./script/config.js",
-    "start": "node app.local.js",
+    "start": "nodemon app.local.js",
     "deploy": "zip -r lambda-package.zip node_modules/ index.js app.js && aws s3 cp lambda-package.zip s3://$npm_package_config_bucketName/",
     "update-credentials": "cp /mnt/c/Users/Matt/.aws/credentials ~/.aws/credentials",
     "remove": "aws s3 rm s3://$npm_package_config_bucketName/lambda-package.zip"
@@ -19,9 +19,12 @@
     "aws-serverless-express": "^3.3.8",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "express-graphql": "^0.9.0",
+    "graphql": "^14.6.0"
   },
   "devDependencies": {
-    "minimist": "^1.2.5"
+    "minimist": "^1.2.5",
+    "nodemon": "^2.0.2"
   }
 }
