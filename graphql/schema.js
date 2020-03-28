@@ -1,16 +1,22 @@
 const { buildSchema } = require('graphql')
 
 module.exports = buildSchema(`
-  type User {
-    name: String
-    age: Int
+  type Compo {
+    compoMax: String
+    compoMin : String
+    compoTeneur : String
+    constNomFr: String
+    compoCodeConfiance: String
   }
-  type Prout {
-      crotte : String
+  type Aliment {
+    code : String
+    groupe: String
+    nom: String
+    compos : [Compo]
   }
+
   type RootQuery {
-      User: User
-      Prout(typeCrotte: String!) : Prout
+      SearchAliment(value:String, size:Int): [Aliment]
   }
   schema {
       query: RootQuery
