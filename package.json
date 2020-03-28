@@ -9,9 +9,8 @@
   "scripts": {
     "config": "node ./script/config.js",
     "start": "nodemon app.local.js",
-    "deploy": "zip -r lambda-package.zip node_modules/ index.js app.js && aws s3 cp lambda-package.zip s3://$npm_package_config_bucketName/",
-    "update-credentials": "cp /mnt/c/Users/Matt/.aws/credentials ~/.aws/credentials",
-    "remove": "aws s3 rm s3://$npm_package_config_bucketName/lambda-package.zip"
+    "deploy": "node ./script/deploy.js",
+    "update-credentials": "cp /mnt/c/Users/Matt/.aws/credentials ~/.aws/credentials"
   },
   "author": "",
   "license": "ISC",
