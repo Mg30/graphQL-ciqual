@@ -22,11 +22,5 @@ app.use('/graphql', graphqlHTTP({
   rootValue: resolvers,
   graphiql: true,
 }));
-
-
-router.get('/hello-world', (req, res) => {
-    res.json({hello: "world"})
-  })
-
 app.use('/', router)
 module.exports = app
