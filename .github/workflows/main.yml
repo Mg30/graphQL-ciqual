@@ -1,0 +1,20 @@
+on: [push]
+
+jobs:
+  deploy-lambda-job:
+    runs-on: ubuntu-latest
+    name: A job to deploy lambda
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: deploy
+      id: lambda
+      uses: actions/deploy-lambda@v1
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_SESSION_TOKEN: ${{ secrets.AWS_SESSION_TOKEN }}
+      with:
+        bucket-name: 'serverless-express-node-lambda'
+        function-name: 'serverless_api'
