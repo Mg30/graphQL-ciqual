@@ -31,7 +31,6 @@ class Nutriment {
 }
 
 module.exports = {
-    Aliment,
-    Nutriment
+    Aliment
 }
 
