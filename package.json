@@ -10,7 +10,8 @@
     "config": "node ./script/config.js",
     "start": "nodemon app.local.js",
     "deploy": "node ./script/deploy.js",
-    "update-credentials": "cp /mnt/c/Users/Matt/.aws/credentials ~/.aws/credentials"
+    "update-credentials": "cp /mnt/c/Users/Matt/.aws/credentials ~/.aws/credentials",
+    "gh": "node ./script/gh.js"
   },
   "author": "",
   "license": "ISC",
