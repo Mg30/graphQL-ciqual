@@ -17,6 +17,6 @@ jobs:
           AWS_SESSION_TOKEN: ${{ secrets.AWS_SESSION_TOKEN }}
           AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
         with:
-          excluded-files: "'.git*' 'node_modules/*'"
+          excluded-files: "'app.local.js' '*.json' '*.md'"
           bucket-name: "serverless-express-node-lambda"
           function-name: "serverless_api"
