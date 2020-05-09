@@ -5,17 +5,18 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to deploy lambda
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
 
-    - name: deploy
-      id: lambda
-      uses: Mg30/action-deploy-lambda@v1
-      env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        AWS_SESSION_TOKEN: ${{ secrets.AWS_SESSION_TOKEN }}
-        AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
-      with:
-        bucket-name: 'serverless-express-node-lambda'
-        function-name: 'serverless_api'
+      - name: deploy
+        id: lambda
+        uses: Mg30/action-deploy-lambda@v1
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_SESSION_TOKEN: ${{ secrets.AWS_SESSION_TOKEN }}
+          AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+        with:
+          excluded-files: "'.git*' 'node_modules/*'"
+          bucket-name: "serverless-express-node-lambda"
+          function-name: "serverless_api"

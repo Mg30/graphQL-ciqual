@@ -22,5 +22,7 @@ app.use('/graphql', graphqlHTTP({
   rootValue: resolvers,
   graphiql: true,
 }));
+
+
 app.use('/', router)
 module.exports = app
