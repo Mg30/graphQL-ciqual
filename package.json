@@ -25,7 +25,7 @@
     "graphql": "^14.6.0"
   },
   "devDependencies": {
-    "minimist": "^1.2.5",
+    "minimist": "^1.2.6",
     "nodemon": "^2.0.2",
     "dotenv": "^8.2.0",
     "tweetsodium": "0.0.5"
